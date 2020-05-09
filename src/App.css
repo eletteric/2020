@@ -34,7 +34,7 @@ margin:0
 .App-link {
   color: #61dafb;
 }
-canvas {position: absolute; z-index: -1000; overflow: visible; background:#222; display: block; top: 0 ; left:0}
+canvas {position: absolute; z-index: -1000; overflow: visible; background:#fff; display: block; top: 0 ; left:0}
 
 .page{
   position: absolute;
