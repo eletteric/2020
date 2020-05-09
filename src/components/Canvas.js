@@ -81,7 +81,7 @@ const Canvas = () => {
       var y = Math.random() * (window.innerHeight - radius * 2) + radius;
       var dx = (Math.random() - 0.5) * 2;
       var dy = (Math.random() - 0.5) * 2;
-      var radius = Math.random() * 3 + 1;
+      var radius = Math.random() * 5 + 1;
 
       circleArray.push(new Circle(x, y, dx, dy, radius));
     }

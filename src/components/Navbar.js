@@ -56,7 +56,7 @@ return(
             <Link to="/">Home</Link>
             </ListItem>
             <ListItem button>
-            <NavLink to="/products">Work</NavLink>
+            <NavLink to="/work">Work</NavLink>
             </ListItem>
             <ListItem button>
             <NavLink to="/about">About</NavLink>

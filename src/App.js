@@ -5,7 +5,7 @@ import { AnimatePresence } from "framer-motion";
 
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
-import Products from "./components/Products";
+import Work from "./components/Work";
 
 import About from "./components/About";
 import Contact from "./components/Contact";
@@ -13,65 +13,59 @@ import Contact from "./components/Contact";
 
 import "./App.css";
 const App = () => {
-  const productList = [
+  const creations = [
     {
       id: 1,
-      cols: 2,
-      title: "Twee vuile slipjes",
-      description: "This is an artwork",
-      date: "01-03-2020",
-      price: 200,
       imageLink: "http://www.eletteric.com/portfolio/envelope.jpg",
+      name: 'Soft Grass',
+      description: ' #c1dfc4 → #deecdd',
+      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
+      height: 400
     },
     {
       id: 2,
-      cols: 2,
-      title: "Cock au vin",
-      description: "This is also an artwork",
-      date: "01-03-2020",
-      price: 200,
+      name: 'Soft Grass',
+      description: ' #c1dfc4 → #deecdd',
+      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
+      height: 400,
       imageLink:
         "http://www.eletteric.com/portfolio/energie-sparen-desktop.jpg",
     },
 
     {
       id: 3,
-      cols: 1,
-      title: "Meisje met verf",
-      description: "This is also an artwork",
-      date: "01-03-2020",
-      price: 200,
+      name: 'Soft Grass',
+      description: ' #c1dfc4 → #deecdd',
+      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
+      height: 400,
       imageLink:
         "http://www.eletteric.com/portfolio/bobex-newsletter-mobile.jpg",
     },
 
     {
       id: 4,
-      cols: 1,
-      title: "Meisje met verf",
-      description: "This is also an artwork",
-      date: "01-03-2020",
-      price: 200,
+      name: 'Soft Grass',
+      description: ' #c1dfc4 → #deecdd',
+      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
+      height: 400,
       imageLink:
         "http://www.eletteric.com/portfolio/GCS-businesscard-front.jpg",
     },
     {
       id: 5,
-      cols: 1,
-      title: "Meisje met verf",
-      description: "This is also an artwork",
-      date: "01-03-2020",
-      price: 200,
+      name: 'Soft Grass',
+      description: ' #c1dfc4 → #deecdd',
+      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
+      height: 400,
       imageLink:
         "http://www.eletteric.com/portfolio/Gondola-layout-02-small.jpg",
     },
     {
       id: 6,
-      cols: 2,
-      title: "Meisje met verf",
-      description: "This is also an artwork",
-      date: "01-03-2020",
-      price: 200,
+      name: 'Soft Grass',
+      description: ' #c1dfc4 → #deecdd',
+      css: 'linear-gradient(135deg, #c1dfc4 0%, #deecdd 100%)',
+      height: 400,
       imageLink:
         "http://www.eletteric.com/portfolio/ADDMOBILE_01_2014-prospect-02.jpg",
     },
@@ -122,13 +116,13 @@ const App = () => {
             )}
           />
           <Route
-            path="/products"
+            path="/work"
             render={(props) => (
-              <Products
+              <Work
                 {...props}
                 pageVariants={pageVariants}
                 pageTransition={pageTransition}
-                productList={productList}
+                creations={creations}
               />
             )}
           />

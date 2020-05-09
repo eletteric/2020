@@ -24,8 +24,12 @@ const Home = (props) => {
         ref.current = []
         set([])
         ref.current.push(setTimeout(() => set(['Designer', 'Coder', 'Creator']), 250))
-        ref.current.push(setTimeout(() => set(['Designer', 'Creator']), 3000))
-        ref.current.push(setTimeout(() => set(['Designer', 'Creator', 'Coder']), 6000))
+        ref.current.push(setTimeout(() => set(['Designer', 'Creator']), 1000))
+        ref.current.push(setTimeout(() => set(['Designer', 'Creator', 'Coder']), 3000))
+        ref.current.push(setTimeout(() => set(['Designer', 'Coder']), 4500))
+        ref.current.push(setTimeout(() => set(['Designer', 'Creator', 'Coder']), 5000))
+
+
       }, [])
 
       useEffect(() => void reset(), [])
@@ -43,7 +47,7 @@ const Home = (props) => {
         style={{ position: "absolute", marginTop: "20vh" }}
       >
       {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
-        <animated.div className="transitions-item" key={key} style={rest} onClick={reset}>
+        <animated.div className="transitions-item" key={key} style={rest}>
           <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
         </animated.div>
       ))}

@@ -1,4 +1,11 @@
-import React from 'react';
+import React, {useState, useRef} from 'react';
+import {render} from 'react-dom';
+import { useTransition, useSpring, useChain, config, animated } from 'react-spring'
+import { Global, itemContainer, Item } from '../styles'
+
+
+import styled, { createGlobalStyle } from 'styled-components'
+
 import {AnimatePresence, motion} from "framer-motion";
 import Canvas from "./Canvas";
 
@@ -57,10 +64,22 @@ const useStyles = makeStyles((theme)=>({
         height: '80px',
         overflow:'hidden'
       },
+      workList:{
+        position: 'relative',
+        display: 'grid',
+        gridTemplateColumns: 'repeat(4, minmax(100px, 1fr))',
+        gridGap: '25px',
+        padding: '25px',
+        background: 'white',
+        borderRadius: '5px',
+        cursor: 'pointer',
+        boxShadow: '0px 10px 10px -5px rgba(0, 0, 0, 0.05)',
+        willChange: 'width, height'
+      },
 
     }));
 
-const Products = (props) => {
+const Work = (props) => {
 
     const [state, setState] = React.useState({
         open: false,
@@ -75,24 +94,46 @@ const Products = (props) => {
         setState({ open: false })
       };
 
-      const addDelay = (delay) => {
-        return{
-            transitionDelay: delay +'ms'
-        }
-      };
+
 
     const classes = useStyles();
-    const products = props.productList.map(
-        product => {
-            let delay =+ 100;
-            return (
-                        <Zoom in onClick={()=>handleClickOpen(product.imageLink)} key={product.id} style={addDelay(delay)}>
-          <Paper elevation={4} className={classes.paper}>
-                    <img src={product.imageLink} alt={product.title} />
-                    </Paper></Zoom>
-            )
-        }
-    )
+    const creations = props.creations;
+
+
+    const Item = styled(animated.div)`
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 5px;
+    will-change: transform, opacity;
+  `
+
+
+    const [open, set] = useState(false)
+state.open=true;
+    const springRef = useRef()
+    const { size, opacity, ...rest } = useSpring({
+      ref: springRef,
+      config: config.stiff,
+      from: { size: '20%', background: 'hotpink' },
+      to: { size: '100%', background: 'white'}
+    })
+  
+    const transRef = useRef()
+    const transitions = useTransition(creations, item => item.name, {
+      ref: transRef,
+      unique: true,
+      trail: 400 / creations.length,
+      from: { opacity: 0, transform: 'scale(0)' },
+      enter: { opacity: 1, transform: 'scale(1)' },
+      leave: { opacity: 0, transform: 'scale(0)' }
+    })
+  
+    // This will orchestrate the two animations above, comment the last arg and it creates a sequence
+    useChain([springRef, transRef], [0, 0.1])
+
+
+
     return(
       <div>      <Canvas/>
 
@@ -105,24 +146,15 @@ const Products = (props) => {
             className="page"
             style={{position:'absolute', width: '80vw', margin: '0px auto'}}
         >
-            <div className="root">
-            <div className={classes.container}>
-                    {products}
-                    </div>
-                <Dialog
-                    open={state.open}
-                    TransitionComponent={Transition}
-                    keepMounted
-                    onClose={handleClose}
-                    aria-labelledby="alert-dialog-slide-title"
-                    aria-describedby="alert-dialog-slide-description"
-                >
-                    <img src={state.currentImg}/>
-                </Dialog>
-            </div>
+          <div className={classes.workList}>
+        {transitions.map(({ item, key, props }) => (
+          <Item key={key} style={{ ...props, background: item.css }}><img src={item.imageLink} alt={item.title}/>
+          </Item>
+        ))}
+                  </div>
         </motion.div>
         </div>
         )
 }
 
-export default Products
+export default Work

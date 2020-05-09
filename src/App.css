@@ -101,7 +101,7 @@ body {
 .navWrapper{margin-top:0px; margin-bottom:40px;}
 .MuiButtonBase-root:focus{background: #fff !important; color:#000}
 a{color:#000}
-.MuiListItem-root a { text-align: center; width:100%}
+.MuiListItem-root a { text-align: center; width:100%; text-transform: uppercase; font-weight: 600; font-size: 1em;}
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
