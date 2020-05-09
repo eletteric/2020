@@ -11,6 +11,7 @@ import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import Portrait from '../img/mn.jpg';
 import Divider from '@material-ui/core/Divider';
+import Canvas from "./Canvas";
 
 const useStyles = makeStyles((theme)=>({
     cardRoot: {
@@ -40,6 +41,7 @@ const Contact = (props) => {
   const bull = <span className={classes.bullet}>•</span>;
 
     return(
+      <div> <Canvas/>
         <motion.div
         initial="initial"
         animate="in"
@@ -52,6 +54,7 @@ const Contact = (props) => {
     >
         
 </motion.div>
+</div>
     );
 }
 

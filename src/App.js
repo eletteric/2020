@@ -9,7 +9,6 @@ import Products from "./components/Products";
 
 import About from "./components/About";
 import Contact from "./components/Contact";
-import Canvas from "./components/Canvas";
 
 
 import "./App.css";
@@ -108,7 +107,6 @@ const App = () => {
 
   return (
     <div className="App" style={{ position: "relative" }}>
-      <Canvas/>
       <Navbar />
       <AnimatePresence>
         <Switch location={location} key={location.pathname}>

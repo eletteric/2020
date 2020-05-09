@@ -7,6 +7,8 @@ import Container from '@material-ui/core/Container';
 import Avatar from '@material-ui/core/Avatar';
 import Portrait from '../img/mn.jpg';
 import Divider from '@material-ui/core/Divider';
+import Canvas from "./Canvas";
+
 const useStyles = makeStyles((theme)=>({
     cardRoot: {
       minWidth: 275,
@@ -33,6 +35,7 @@ const About = (props) => {
     const classes = useStyles();
 
     return(
+      <div> <Canvas/>
         <motion.div
         initial="initial"
         animate="in"
@@ -58,6 +61,7 @@ const About = (props) => {
         </Typography>
         </Container>
 </motion.div>
+</div>
     );
 }
 

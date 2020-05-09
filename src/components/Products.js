@@ -1,5 +1,6 @@
 import React from 'react';
 import {AnimatePresence, motion} from "framer-motion";
+import Canvas from "./Canvas";
 
 import Typography from '@material-ui/core/Typography';
 
@@ -93,6 +94,8 @@ const Products = (props) => {
         }
     )
     return(
+      <div>      <Canvas/>
+
         <motion.div
             initial="initial"
             animate="in"
@@ -118,6 +121,7 @@ const Products = (props) => {
                 </Dialog>
             </div>
         </motion.div>
+        </div>
         )
 }
 
