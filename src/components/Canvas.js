@@ -34,14 +34,14 @@ const Canvas = () => {
       window.addEventListener("resize", resizeCanvas, false);
     }
     function resizeCanvas() {
-      canvas.width = window.innerWidth/2;
+      canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     }
 
     let canvas = ref.current;
     let context = canvas.getContext("2d");
 
-    canvas.width = window.innerWidth/2;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
     let requestId;
@@ -88,7 +88,6 @@ const Canvas = () => {
 
     const render = () => {
     requestId = requestAnimationFrame(render);
-
       context.clearRect(0, 0, canvas.width, canvas.height);
       for (let b = 0; b < circleArray.length; b++) {
         circleArray[b].update();
